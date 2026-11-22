@@ -1,0 +1,23 @@
+services:
+  inventory:
+    build: 
+        context: ./inventory-service 
+        dockerfile: Dockerfile 
+    ports: 
+     - "8081:8081"
+    environment:
+         INVENTORY-URL: http://inventory:8081 
+    volumes: 
+       - inventory-data:/src/code/inventory/data
+  order: 
+    build: 
+        context: ./order-service
+        dockerfile: Dockerfile 
+    volumes: 
+      - order-data:/src/code/order/data
+    ports: 
+      - "8082:8082"
+
+volumes:  
+    inventory-data:
+    order-data:   
