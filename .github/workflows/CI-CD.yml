@@ -22,4 +22,4 @@ jobs:
 
       - name: Run the Application
         run: |
-          docker compose -f docker-compose.yml up -d --build
+          docker compose up -d --build
